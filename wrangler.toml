@@ -6,3 +6,4 @@ main = "worker.js"
 [assets]
 directory = "."
 binding = "ASSETS"
+exclude = ["node_modules/**", ".git/**", ".wrangler/**"]
