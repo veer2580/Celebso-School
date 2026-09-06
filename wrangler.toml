@@ -1,6 +1,7 @@
 # Cloudflare Workers Static Assets Configuration for Celebso Startup School
 name = "celebso-school"
 compatibility_date = "2024-09-23"
+main = "worker.js"
 
 [assets]
 directory = "."
