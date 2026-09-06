@@ -4,7 +4,7 @@
   "description": "Celebso Startup School Website - Cloudflare Pages & Workers Ready",
   "scripts": {
     "dev": "wrangler pages dev .",
-    "deploy": "wrangler pages deploy . --project-name=celebso-school --commit-dirty=true",
+    "deploy": "wrangler deploy",
     "deploy:pages": "wrangler pages deploy . --project-name=celebso-school --commit-dirty=true",
     "login": "wrangler login",
     "whoami": "wrangler whoami"

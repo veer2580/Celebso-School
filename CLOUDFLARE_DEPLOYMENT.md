@@ -1,8 +1,8 @@
-# 🚀 Cloudflare Pages Deployment Guide (Celebso Startup School)
+# 🚀 Cloudflare Workers Deployment Guide (Celebso Startup School)
 
-> Important: This repository is configured for **Cloudflare Pages**, not Workers. In the Cloudflare dashboard, set **Build command** to blank and **Build output directory** to `.`. Clear the custom **Deploy command** (do not use `npx wrangler deploy`). Pages Git deployments run automatically after the repository is built.
+> This repository is configured for **Cloudflare Workers Static Assets**. The Worker entrypoint is `worker.js` and the static files are served through the `ASSETS` binding.
 
-Aapki website **Cloudflare Pages** ke liye configure hai. Isme static files, `_headers`, `_redirects`, `404.html`, `wrangler.toml` aur `package.json` deployment ke liye ready hain.
+Aapki website **Cloudflare Workers Static Assets** ke liye configure hai. Isme `worker.js`, `wrangler.toml` aur static files deployment ke liye ready hain.
 
 ---
 
