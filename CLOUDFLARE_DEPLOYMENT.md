@@ -2,7 +2,7 @@
 
 > This repository is configured for **Cloudflare Workers Static Assets**. The Worker entrypoint is `worker.js` and the static files are served through the `ASSETS` binding.
 
-Aapki website **Cloudflare Workers Static Assets** ke liye configure hai. Isme `worker.js`, `wrangler.toml` aur static files deployment ke liye ready hain.
+Aapki website **Cloudflare Workers Static Assets** ke liye configure hai. Isme `worker.js`, `wrangler.toml`, `.wranglerignore` aur static files deployment ke liye ready hain.
 
 ---
 
