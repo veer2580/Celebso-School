@@ -1,0 +1,12 @@
+# Cloudflare & Node artifacts
+node_modules/
+.wrangler/
+.env
+.env.*
+!.env.example
+dist/
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

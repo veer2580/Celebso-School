@@ -1,0 +1,23 @@
+{
+  "name": "celebso-school",
+  "version": "1.0.0",
+  "description": "Celebso Startup School Website - Cloudflare Pages & Workers Ready",
+  "scripts": {
+    "dev": "wrangler pages dev .",
+    "deploy": "wrangler pages deploy . --project-name=celebso-school --commit-dirty=true",
+    "deploy:worker": "wrangler deploy",
+    "login": "wrangler login",
+    "whoami": "wrangler whoami"
+  },
+  "keywords": [
+    "celebso",
+    "startup-school",
+    "cloudflare-pages",
+    "cloudflare-workers"
+  ],
+  "author": "Celebso",
+  "license": "ISC",
+  "devDependencies": {
+    "wrangler": "^3.114.0"
+  }
+}
