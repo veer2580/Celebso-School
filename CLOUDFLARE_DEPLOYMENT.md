@@ -1,15 +1,16 @@
-# 🚀 Cloudflare Pages & Workers Deployment Guide (Celebso Startup School)
+# 🚀 Cloudflare Pages Deployment Guide (Celebso Startup School)
 
-Aapki website ko **Cloudflare Pages** aur **Cloudflare Workers** dono ke liye 100% ready aur configure kar diya gaya hai. Isme sabhi configuration files (`wrangler.toml`, `_headers`, `_redirects`, `404.html`, `worker.js`, `package.json`, `.gitignore`) set ho chuki hain taaki deploy karte waqt **koi bhi error na aaye**.
+> Important: This repository is configured for **Cloudflare Pages**, not Workers. In the Cloudflare dashboard, set **Build command** to blank and **Build output directory** to `.`. Clear the custom **Deploy command** (do not use `npx wrangler deploy`). Pages Git deployments run automatically after the repository is built.
+
+Aapki website **Cloudflare Pages** ke liye configure hai. Isme static files, `_headers`, `_redirects`, `404.html`, `wrangler.toml` aur `package.json` deployment ke liye ready hain.
 
 ---
 
 ## 🛠️ Setup ki gayi Configuration Files:
 
 1. **`wrangler.toml`**:
-   - Cloudflare ka official configuration file (Wrangler CLI ke liye).
+   - Cloudflare Pages ka configuration file.
    - Pages build output directory: `.` (root folder).
-   - Workers Static Assets binding: `ASSETS`.
 
 2. **`_headers`**:
    - Production-level HTTP Security headers (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, etc.).
@@ -66,6 +67,7 @@ Agar aapne code GitHub par push kiya hua hai:
    - **Framework preset**: `None`
    - **Build command**: *(Khali / Blank chhod dein)*
    - **Build output directory**: `.` (sirf ek dot)
+   - **Deploy command**: *(Blank / unset — `npx wrangler deploy` mat use karein)*
 5. **Save and Deploy** par click karein.
 
 ---
