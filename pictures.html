@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="shortcut icon" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+  <!-- Primary SEO -->
+  <title>Pictures & Moments | Celebso Startup School - Founder Journey in Frames</title>
+  <meta name="description" content="Explore real moments, masterclasses, founder mentorship, and pitch events from Celebso Startup School led by Veer Singh.">
+  <meta name="keywords" content="celebso pictures, veer sir photos, celebso startup school gallery, founder bootcamps, startup school campus">
+  <meta name="author" content="Celebso Startup School">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://school.celebso.com/pictures.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Celebso Startup School">
+  <meta property="og:title" content="Pictures & Moments | Celebso Startup School">
+  <meta property="og:description" content="Explore real moments, masterclasses, founder mentorship, and pitch events from Celebso Startup School led by Veer Singh.">
+  <meta property="og:url" content="https://school.celebso.com/pictures.html">
+  <meta property="og:image" content="https://school.celebso.com/assets/images/gallery/photo_01.jpg">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pictures & Moments | Celebso Startup School">
+  <meta name="twitter:description" content="Explore real moments, masterclasses, founder mentorship, and pitch events from Celebso Startup School.">
+  <meta name="twitter:image" content="https://school.celebso.com/assets/images/gallery/photo_01.jpg">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Dedicated Premium Gallery Styles */
+    .gallery-hero {
+      padding: 130px 0 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(202, 255, 4, 0.12) 0%, rgba(5, 11, 8, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .gallery-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .gallery-stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .gallery-stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      background: rgba(16, 34, 26, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      color: #FFFFFF;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .gallery-stat-pill strong {
+      color: var(--accent-lime);
+      font-weight: 800;
+    }
+    
+    /* Filter Bar */
+    .gallery-filter-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: 30px auto 45px;
+      flex-wrap: wrap;
+      padding: 8px;
+      background: rgba(10, 20, 15, 0.7);
+      border: 1px solid var(--card-border-subtle);
+      border-radius: var(--radius-full);
+      max-width: fit-content;
+      backdrop-filter: blur(16px);
+    }
+    .filter-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .filter-btn:hover {
+      color: #FFFFFF;
+      background: rgba(202, 255, 4, 0.08);
+    }
+    .filter-btn.active {
+      color: #050B08;
+      background: var(--accent-lime);
+      font-weight: 700;
+      box-shadow: 0 0 20px rgba(202, 255, 4, 0.35);
+    }
+
+    /* Gallery Grid Layout */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      padding-bottom: 80px;
+    }
+    @media (min-width: 1200px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+    }
+    @media (max-width: 640px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    /* Gallery Card */
+    .gallery-card {
+      position: relative;
+      background: rgba(16, 34, 26, 0.65);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .gallery-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: rgba(202, 255, 4, 0.6);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(202, 255, 4, 0.2);
+    }
+    .gallery-thumb-wrapper {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      background: #020504;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-card:hover .gallery-img {
+      transform: scale(1.07);
+    }
+
+    /* Overlay */
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(4, 10, 7, 0.95) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-card:hover .gallery-overlay {
+      opacity: 1;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 30%, rgba(4, 10, 7, 0.98) 100%);
+    }
+    .gallery-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(6, 18, 13, 0.85);
+      border: 1px solid rgba(202, 255, 4, 0.3);
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent-lime);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+    .gallery-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      transition: color 0.2s ease;
+    }
+    .gallery-card:hover .gallery-card-title {
+      color: var(--accent-lime);
+    }
+    .gallery-card-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+    .gallery-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-lime);
+      font-size: 0.84rem;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-card:hover .gallery-action-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(3, 8, 6, 0.94);
+      backdrop-filter: blur(20px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 30px;
+    }
+    .lightbox-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox-container {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-image-wrap {
+      position: relative;
+      max-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(202, 255, 4, 0.3);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(202, 255, 4, 0.2);
+      background: #030806;
+    }
+    .lightbox-image-wrap img {
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 16px;
+      user-select: none;
+    }
+    .lightbox-info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      padding: 12px 20px;
+      background: rgba(16, 34, 26, 0.7);
+      border: 1px solid var(--card-border-subtle);
+      border-radius: var(--radius-md);
+      color: #FFFFFF;
+    }
+    .lightbox-info-left h3 {
+      font-size: 1.1rem;
+      color: var(--accent-lime);
+      margin-bottom: 2px;
+    }
+    .lightbox-info-left p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .lightbox-counter {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--card-border-subtle);
+    }
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(16, 34, 26, 0.85);
+      border: 1px solid var(--card-border);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+    .lightbox-nav-btn:hover {
+      background: var(--accent-lime);
+      color: #050B08;
+      border-color: var(--accent-lime);
+      box-shadow: 0 0 25px rgba(202, 255, 4, 0.5);
+    }
+    .lightbox-prev {
+      left: -26px;
+    }
+    .lightbox-next {
+      right: -26px;
+    }
+    @media (max-width: 768px) {
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .lightbox-close:hover {
+      color: var(--accent-lime);
+      transform: scale(1.15);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        CELEBSO<span class="dot">.</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="pitch-day.html" class="nav-link">Pitch Day</a>
+        <a href="pictures.html" class="nav-link active">Pictures</a>
+        <a href="insights.html" class="nav-link">Insights</a>
+        <a href="contact.html" class="nav-link">Contact Us</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary btn-sm" data-action="open-apply-modal">
+          APPLY NOW
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+        <button class="mobile-toggle" aria-label="Toggle navigation menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="gallery-hero">
+    <div class="container">
+      <div class="eyebrow reveal-on-scroll">
+        <span class="live-pulse"></span> LIFE AT CELEBSO & FOUNDER JOURNEYS
+      </div>
+      <h1 class="page-title reveal-on-scroll" style="margin-top: 14px;">
+        Moments, Mentorship <br>& <span class="text-lime">Startup Milestones</span>
+      </h1>
+      <p class="section-subtitle reveal-on-scroll" style="max-width: 680px; margin: 16px auto 0;">
+        A visual timeline of founder masterclasses, intensive cohort workshops, direct startup mentoring, and milestone pitch sessions led by Veer Singh.
+      </p>
+
+      <div class="gallery-stats-row reveal-on-scroll">
+        <div class="gallery-stat-pill">
+          <span>📸</span>
+          <span><strong>36+</strong> Authentic Moments</span>
+        </div>
+        <div class="gallery-stat-pill">
+          <span>🚀</span>
+          <span><strong>Founder</strong> Bootcamps</span>
+        </div>
+        <div class="gallery-stat-pill">
+          <span>💡</span>
+          <span><strong>1-on-1</strong> Mentoring Sprints</span>
+        </div>
+      </div>
+
+      <!-- Featured Live Video Masterclasses Section -->
+      <div class="video-showcase-wrap" style="margin-top: 48px; text-align: left;">
+        <div class="section-header text-center reveal-on-scroll" style="margin-bottom: 28px;">
+          <div class="eyebrow"><span class="live-pulse"></span> EXCLUSIVE VIDEO ARCHIVES</div>
+          <h2 style="font-size: 2.1rem; margin-top: 8px;">Live Founder <span class="text-lime">Sessions in Motion</span></h2>
+          <p class="section-subtitle" style="max-width: 600px; margin: 8px auto 0;">
+            Watch Veer Sir in action during cohort interactions, breaking down early-stage startup hurdles, product building, and founder mindset.
+          </p>
+        </div>
+
+        <div class="video-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+          <!-- Video 1 -->
+          <div class="video-card glass-card glass-card-glow reveal-on-scroll" style="padding: 0; overflow: hidden; border-radius: 20px; border: 1px solid rgba(202, 255, 4, 0.25);">
+            <div class="video-wrapper" style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000;">
+              <video controls poster="assets/videos/thumb_video_1.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" preload="metadata">
+                <source src="assets/videos/veer_sir_session_01.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-tag" style="position: absolute; top: 14px; left: 14px; background: rgba(5, 11, 8, 0.88); border: 1px solid var(--accent-lime); border-radius: var(--radius-full); padding: 4px 12px; font-size: 0.74rem; font-weight: 700; color: var(--accent-lime); pointer-events: none;">
+                LIVE MASTERCLASS • 51s
+              </div>
+            </div>
+            <div style="padding: 20px 22px;">
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Startup Strategy & Cohort Interaction</h3>
+              <p style="color: var(--text-muted); font-size: 0.86rem; line-height: 1.45; margin-bottom: 12px;">
+                Veer Sir breaking down early-stage execution, product ideation, and overcoming founder hurdles during an interactive cohort session.
+              </p>
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--text-dim); border-top: 1px solid var(--card-border-subtle); padding-top: 10px;">
+                <span style="display: flex; align-items: center; gap: 6px; color: var(--accent-lime); font-weight: 600;">
+                  ▶ In-Person Session
+                </span>
+                <span>HD Video</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="video-card glass-card glass-card-glow reveal-on-scroll" style="padding: 0; overflow: hidden; border-radius: 20px; border: 1px solid rgba(202, 255, 4, 0.25);">
+            <div class="video-wrapper" style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000;">
+              <video controls poster="assets/videos/thumb_video_2.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" preload="metadata">
+                <source src="assets/videos/veer_sir_session_02.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="video-tag" style="position: absolute; top: 14px; left: 14px; background: rgba(5, 11, 8, 0.88); border: 1px solid var(--accent-lime); border-radius: var(--radius-full); padding: 4px 12px; font-size: 0.74rem; font-weight: 700; color: var(--accent-lime); pointer-events: none;">
+                FOUNDER TALK • 60s
+              </div>
+            </div>
+            <div style="padding: 20px 22px;">
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Keynote & Founder Mindset Sprint</h3>
+              <p style="color: var(--text-muted); font-size: 0.86rem; line-height: 1.45; margin-bottom: 12px;">
+                Deep-dive into building defensible moats, market timing, and navigating investor expectations in India's startup ecosystem.
+              </p>
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--text-dim); border-top: 1px solid var(--card-border-subtle); padding-top: 10px;">
+                <span style="display: flex; align-items: center; gap: 6px; color: var(--accent-lime); font-weight: 600;">
+                  ▶ Keynote & Q&A
+                </span>
+                <span>HD Video</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="gallery-filter-bar reveal-on-scroll">
+        <button class="filter-btn active" data-filter="all">All Photos (36)</button>
+        <button class="filter-btn" data-filter="workshops">Workshops & Cohorts</button>
+        <button class="filter-btn" data-filter="mentorship">Mentorship & Strategy</button>
+        <button class="filter-btn" data-filter="keynotes">Keynotes & Talks</button>
+        <button class="filter-btn" data-filter="community">Campus Life</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery Item 01 -->
+        <div class="gallery-card reveal-on-scroll" data-category="workshops" data-id="1" data-src="assets/images/gallery/photo_01.jpg" data-title="Workshop & Cohort #01" data-desc="Hands-on product building and MVP sprint with student founders">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_01.jpg" alt="Workshop & Cohort - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Workshop & Cohort</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Workshop & Cohort #01</h4>
+                <p class="gallery-card-desc">Hands-on product building and MVP sprint with student founders</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 02 -->
+        <div class="gallery-card reveal-on-scroll" data-category="mentorship" data-id="2" data-src="assets/images/gallery/photo_02.jpg" data-title="Founder Mentorship #02" data-desc="Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_02.jpg" alt="Founder Mentorship - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Founder Mentorship</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Founder Mentorship #02</h4>
+                <p class="gallery-card-desc">Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 03 -->
+        <div class="gallery-card reveal-on-scroll" data-category="keynotes" data-id="3" data-src="assets/images/gallery/photo_03.jpg" data-title="Keynote & Talks #03" data-desc="Inspiring startup masterclass and keynote session on Indian startup ecosystem">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_03.jpg" alt="Keynote & Talks - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Keynote & Talks</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Keynote & Talks #03</h4>
+                <p class="gallery-card-desc">Inspiring startup masterclass and keynote session on Indian startup ecosystem</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 04 -->
+        <div class="gallery-card reveal-on-scroll" data-category="community" data-id="4" data-src="assets/images/gallery/photo_04.jpg" data-title="Campus & Community #04" data-desc="Dynamic peer learning, brainstorming, and founder connections">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_04.jpg" alt="Campus & Community - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Campus & Community</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Campus & Community #04</h4>
+                <p class="gallery-card-desc">Dynamic peer learning, brainstorming, and founder connections</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 05 -->
+        <div class="gallery-card reveal-on-scroll" data-category="workshops" data-id="5" data-src="assets/images/gallery/photo_05.jpg" data-title="Workshop & Cohort #05" data-desc="Hands-on product building and MVP sprint with student founders">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_05.jpg" alt="Workshop & Cohort - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Workshop & Cohort</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Workshop & Cohort #05</h4>
+                <p class="gallery-card-desc">Hands-on product building and MVP sprint with student founders</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 06 -->
+        <div class="gallery-card reveal-on-scroll" data-category="mentorship" data-id="6" data-src="assets/images/gallery/photo_06.jpg" data-title="Founder Mentorship #06" data-desc="Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_06.jpg" alt="Founder Mentorship - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Founder Mentorship</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Founder Mentorship #06</h4>
+                <p class="gallery-card-desc">Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 07 -->
+        <div class="gallery-card reveal-on-scroll" data-category="keynotes" data-id="7" data-src="assets/images/gallery/photo_07.jpg" data-title="Keynote & Talks #07" data-desc="Inspiring startup masterclass and keynote session on Indian startup ecosystem">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_07.jpg" alt="Keynote & Talks - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Keynote & Talks</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Keynote & Talks #07</h4>
+                <p class="gallery-card-desc">Inspiring startup masterclass and keynote session on Indian startup ecosystem</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 08 -->
+        <div class="gallery-card reveal-on-scroll" data-category="community" data-id="8" data-src="assets/images/gallery/photo_08.jpg" data-title="Campus & Community #08" data-desc="Dynamic peer learning, brainstorming, and founder connections">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_08.jpg" alt="Campus & Community - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Campus & Community</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Campus & Community #08</h4>
+                <p class="gallery-card-desc">Dynamic peer learning, brainstorming, and founder connections</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 09 -->
+        <div class="gallery-card reveal-on-scroll" data-category="workshops" data-id="9" data-src="assets/images/gallery/photo_09.jpg" data-title="Workshop & Cohort #09" data-desc="Hands-on product building and MVP sprint with student founders">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_09.jpg" alt="Workshop & Cohort - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Workshop & Cohort</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Workshop & Cohort #09</h4>
+                <p class="gallery-card-desc">Hands-on product building and MVP sprint with student founders</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 10 -->
+        <div class="gallery-card reveal-on-scroll" data-category="mentorship" data-id="10" data-src="assets/images/gallery/photo_10.jpg" data-title="Founder Mentorship #10" data-desc="Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_10.jpg" alt="Founder Mentorship - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Founder Mentorship</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Founder Mentorship #10</h4>
+                <p class="gallery-card-desc">Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 11 -->
+        <div class="gallery-card reveal-on-scroll" data-category="keynotes" data-id="11" data-src="assets/images/gallery/photo_11.jpg" data-title="Keynote & Talks #11" data-desc="Inspiring startup masterclass and keynote session on Indian startup ecosystem">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_11.jpg" alt="Keynote & Talks - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Keynote & Talks</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Keynote & Talks #11</h4>
+                <p class="gallery-card-desc">Inspiring startup masterclass and keynote session on Indian startup ecosystem</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 12 -->
+        <div class="gallery-card reveal-on-scroll" data-category="community" data-id="12" data-src="assets/images/gallery/photo_12.jpg" data-title="Campus & Community #12" data-desc="Dynamic peer learning, brainstorming, and founder connections">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_12.jpg" alt="Campus & Community - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Campus & Community</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Campus & Community #12</h4>
+                <p class="gallery-card-desc">Dynamic peer learning, brainstorming, and founder connections</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 13 -->
+        <div class="gallery-card reveal-on-scroll" data-category="workshops" data-id="13" data-src="assets/images/gallery/photo_13.jpg" data-title="Workshop & Cohort #13" data-desc="Hands-on product building and MVP sprint with student founders">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_13.jpg" alt="Workshop & Cohort - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Workshop & Cohort</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Workshop & Cohort #13</h4>
+                <p class="gallery-card-desc">Hands-on product building and MVP sprint with student founders</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 14 -->
+        <div class="gallery-card reveal-on-scroll" data-category="mentorship" data-id="14" data-src="assets/images/gallery/photo_14.jpg" data-title="Founder Mentorship #14" data-desc="Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_14.jpg" alt="Founder Mentorship - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Founder Mentorship</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Founder Mentorship #14</h4>
+                <p class="gallery-card-desc">Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 15 -->
+        <div class="gallery-card reveal-on-scroll" data-category="keynotes" data-id="15" data-src="assets/images/gallery/photo_15.jpg" data-title="Keynote & Talks #15" data-desc="Inspiring startup masterclass and keynote session on Indian startup ecosystem">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_15.jpg" alt="Keynote & Talks - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Keynote & Talks</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Keynote & Talks #15</h4>
+                <p class="gallery-card-desc">Inspiring startup masterclass and keynote session on Indian startup ecosystem</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 16 -->
+        <div class="gallery-card reveal-on-scroll" data-category="community" data-id="16" data-src="assets/images/gallery/photo_16.jpg" data-title="Campus & Community #16" data-desc="Dynamic peer learning, brainstorming, and founder connections">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_16.jpg" alt="Campus & Community - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Campus & Community</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Campus & Community #16</h4>
+                <p class="gallery-card-desc">Dynamic peer learning, brainstorming, and founder connections</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 17 -->
+        <div class="gallery-card reveal-on-scroll" data-category="workshops" data-id="17" data-src="assets/images/gallery/photo_17.jpg" data-title="Workshop & Cohort #17" data-desc="Hands-on product building and MVP sprint with student founders">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_17.jpg" alt="Workshop & Cohort - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Workshop & Cohort</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Workshop & Cohort #17</h4>
+                <p class="gallery-card-desc">Hands-on product building and MVP sprint with student founders</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 18 -->
+        <div class="gallery-card reveal-on-scroll" data-category="mentorship" data-id="18" data-src="assets/images/gallery/photo_18.jpg" data-title="Founder Mentorship #18" data-desc="Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_18.jpg" alt="Founder Mentorship - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Founder Mentorship</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Founder Mentorship #18</h4>
+                <p class="gallery-card-desc">Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 19 -->
+        <div class="gallery-card reveal-on-scroll" data-category="keynotes" data-id="19" data-src="assets/images/gallery/photo_19.jpg" data-title="Keynote & Talks #19" data-desc="Inspiring startup masterclass and keynote session on Indian startup ecosystem">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_19.jpg" alt="Keynote & Talks - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Keynote & Talks</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Keynote & Talks #19</h4>
+                <p class="gallery-card-desc">Inspiring startup masterclass and keynote session on Indian startup ecosystem</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 20 -->
+        <div class="gallery-card reveal-on-scroll" data-category="community" data-id="20" data-src="assets/images/gallery/photo_20.jpg" data-title="Campus & Community #20" data-desc="Dynamic peer learning, brainstorming, and founder connections">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_20.jpg" alt="Campus & Community - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Campus & Community</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Campus & Community #20</h4>
+                <p class="gallery-card-desc">Dynamic peer learning, brainstorming, and founder connections</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 21 -->
+        <div class="gallery-card reveal-on-scroll" data-category="workshops" data-id="21" data-src="assets/images/gallery/photo_21.jpg" data-title="Workshop & Cohort #21" data-desc="Hands-on product building and MVP sprint with student founders">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_21.jpg" alt="Workshop & Cohort - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Workshop & Cohort</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Workshop & Cohort #21</h4>
+                <p class="gallery-card-desc">Hands-on product building and MVP sprint with student founders</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 22 -->
+        <div class="gallery-card reveal-on-scroll" data-category="mentorship" data-id="22" data-src="assets/images/gallery/photo_22.jpg" data-title="Founder Mentorship #22" data-desc="Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_22.jpg" alt="Founder Mentorship - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Founder Mentorship</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Founder Mentorship #22</h4>
+                <p class="gallery-card-desc">Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 23 -->
+        <div class="gallery-card reveal-on-scroll" data-category="keynotes" data-id="23" data-src="assets/images/gallery/photo_23.jpg" data-title="Keynote & Talks #23" data-desc="Inspiring startup masterclass and keynote session on Indian startup ecosystem">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_23.jpg" alt="Keynote & Talks - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Keynote & Talks</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Keynote & Talks #23</h4>
+                <p class="gallery-card-desc">Inspiring startup masterclass and keynote session on Indian startup ecosystem</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 24 -->
+        <div class="gallery-card reveal-on-scroll" data-category="community" data-id="24" data-src="assets/images/gallery/photo_24.jpg" data-title="Campus & Community #24" data-desc="Dynamic peer learning, brainstorming, and founder connections">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_24.jpg" alt="Campus & Community - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Campus & Community</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Campus & Community #24</h4>
+                <p class="gallery-card-desc">Dynamic peer learning, brainstorming, and founder connections</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 25 -->
+        <div class="gallery-card reveal-on-scroll" data-category="workshops" data-id="25" data-src="assets/images/gallery/photo_25.jpg" data-title="Workshop & Cohort #25" data-desc="Hands-on product building and MVP sprint with student founders">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_25.jpg" alt="Workshop & Cohort - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Workshop & Cohort</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Workshop & Cohort #25</h4>
+                <p class="gallery-card-desc">Hands-on product building and MVP sprint with student founders</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 26 -->
+        <div class="gallery-card reveal-on-scroll" data-category="mentorship" data-id="26" data-src="assets/images/gallery/photo_26.jpg" data-title="Founder Mentorship #26" data-desc="Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_26.jpg" alt="Founder Mentorship - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Founder Mentorship</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Founder Mentorship #26</h4>
+                <p class="gallery-card-desc">Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 27 -->
+        <div class="gallery-card reveal-on-scroll" data-category="keynotes" data-id="27" data-src="assets/images/gallery/photo_27.jpg" data-title="Keynote & Talks #27" data-desc="Inspiring startup masterclass and keynote session on Indian startup ecosystem">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_27.jpg" alt="Keynote & Talks - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Keynote & Talks</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Keynote & Talks #27</h4>
+                <p class="gallery-card-desc">Inspiring startup masterclass and keynote session on Indian startup ecosystem</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 28 -->
+        <div class="gallery-card reveal-on-scroll" data-category="community" data-id="28" data-src="assets/images/gallery/photo_28.jpg" data-title="Campus & Community #28" data-desc="Dynamic peer learning, brainstorming, and founder connections">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_28.jpg" alt="Campus & Community - Celebso Startup School" loading="lazy" class="gallery-img portrait">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Campus & Community</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Campus & Community #28</h4>
+                <p class="gallery-card-desc">Dynamic peer learning, brainstorming, and founder connections</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 29 -->
+        <div class="gallery-card reveal-on-scroll" data-category="workshops" data-id="29" data-src="assets/images/gallery/photo_29.jpg" data-title="Workshop & Cohort #29" data-desc="Hands-on product building and MVP sprint with student founders">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_29.jpg" alt="Workshop & Cohort - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Workshop & Cohort</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Workshop & Cohort #29</h4>
+                <p class="gallery-card-desc">Hands-on product building and MVP sprint with student founders</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 30 -->
+        <div class="gallery-card reveal-on-scroll" data-category="mentorship" data-id="30" data-src="assets/images/gallery/photo_30.jpg" data-title="Founder Mentorship #30" data-desc="Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_30.jpg" alt="Founder Mentorship - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Founder Mentorship</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Founder Mentorship #30</h4>
+                <p class="gallery-card-desc">Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 31 -->
+        <div class="gallery-card reveal-on-scroll" data-category="keynotes" data-id="31" data-src="assets/images/gallery/photo_31.jpg" data-title="Keynote & Talks #31" data-desc="Inspiring startup masterclass and keynote session on Indian startup ecosystem">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_31.jpg" alt="Keynote & Talks - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Keynote & Talks</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Keynote & Talks #31</h4>
+                <p class="gallery-card-desc">Inspiring startup masterclass and keynote session on Indian startup ecosystem</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 32 -->
+        <div class="gallery-card reveal-on-scroll" data-category="community" data-id="32" data-src="assets/images/gallery/photo_32.jpg" data-title="Campus & Community #32" data-desc="Dynamic peer learning, brainstorming, and founder connections">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_32.jpg" alt="Campus & Community - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Campus & Community</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Campus & Community #32</h4>
+                <p class="gallery-card-desc">Dynamic peer learning, brainstorming, and founder connections</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 33 -->
+        <div class="gallery-card reveal-on-scroll" data-category="workshops" data-id="33" data-src="assets/images/gallery/photo_33.jpg" data-title="Workshop & Cohort #33" data-desc="Hands-on product building and MVP sprint with student founders">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_33.jpg" alt="Workshop & Cohort - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Workshop & Cohort</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Workshop & Cohort #33</h4>
+                <p class="gallery-card-desc">Hands-on product building and MVP sprint with student founders</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 34 -->
+        <div class="gallery-card reveal-on-scroll" data-category="mentorship" data-id="34" data-src="assets/images/gallery/photo_34.jpg" data-title="Founder Mentorship #34" data-desc="Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_34.jpg" alt="Founder Mentorship - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Founder Mentorship</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Founder Mentorship #34</h4>
+                <p class="gallery-card-desc">Direct 1-on-1 guidance, problem-solving, and startup strategy with Veer Sir</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 35 -->
+        <div class="gallery-card reveal-on-scroll" data-category="keynotes" data-id="35" data-src="assets/images/gallery/photo_35.jpg" data-title="Keynote & Talks #35" data-desc="Inspiring startup masterclass and keynote session on Indian startup ecosystem">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_35.jpg" alt="Keynote & Talks - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Keynote & Talks</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Keynote & Talks #35</h4>
+                <p class="gallery-card-desc">Inspiring startup masterclass and keynote session on Indian startup ecosystem</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Gallery Item 36 -->
+        <div class="gallery-card reveal-on-scroll" data-category="community" data-id="36" data-src="assets/images/gallery/photo_36.jpg" data-title="Campus & Community #36" data-desc="Dynamic peer learning, brainstorming, and founder connections">
+          <div class="gallery-thumb-wrapper">
+            <img src="assets/images/gallery/photo_36.jpg" alt="Campus & Community - Celebso Startup School" loading="lazy" class="gallery-img landscape">
+            <div class="gallery-overlay">
+              <div class="gallery-overlay-top">
+                <span class="gallery-badge">Campus & Community</span>
+              </div>
+              <div class="gallery-overlay-bottom">
+                <h4 class="gallery-card-title">Campus & Community #36</h4>
+                <p class="gallery-card-desc">Dynamic peer learning, brainstorming, and founder connections</p>
+                <div class="gallery-action-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>View Full Photo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Next Cohort CTA -->
+  <section style="padding: 70px 0; background: linear-gradient(180deg, transparent 0%, rgba(10, 20, 15, 0.8) 100%);">
+    <div class="container">
+      <div class="glass-card glass-card-glow text-center reveal-on-scroll" style="padding: 60px 30px; max-width: 850px; margin: 0 auto;">
+        <span class="eyebrow">NEXT FOUNDER COHORT</span>
+        <h2 style="font-size: 2.3rem; margin: 14px 0 16px;">Ready to create your own startup story?</h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 30px;">
+          Join the 45-day intensive founder journey. Learn product building, scale your vision, and pitch directly to leading venture capitalists.
+        </p>
+        <button class="btn btn-primary btn-lg" data-action="open-apply-modal">
+          APPLY FOR NEXT COHORT
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close modal">✕</button>
+      
+      <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Previous photo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+
+      <div class="lightbox-image-wrap">
+        <img src="" alt="Full View" id="lightboxImg">
+      </div>
+
+      <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Next photo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
+      <div class="lightbox-info">
+        <div class="lightbox-info-left">
+          <h3 id="lightboxTitle">Moments at Celebso</h3>
+          <p id="lightboxDesc">Startup education and building</p>
+        </div>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 36</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="brand-logo">CELEBSO<span class="dot">.</span></h3>
+          <p style="color: var(--accent-lime); font-weight: 700; font-size: 0.95rem; margin-bottom: 6px;">Celebso Startup School</p>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 12px;">Innovation & Creator Campus India</p>
+          <p class="footer-desc">Empowering creators, founders and innovators to build global startups, powerful brands and future-ready companies.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="programs.html">Programs</a>
+            <a href="about.html">About Us</a>
+            <a href="pitch-day.html">Pitch Day</a>
+            <a href="pictures.html">Pictures</a>
+            <a href="insights.html">Insights</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; color: var(--text-muted);">
+            <div>
+              <strong style="color: #FFFFFF; display: block;">Email</strong>
+              <a href="mailto:info@celebso.com" style="color: var(--accent-lime);">info@celebso.com</a>
+            </div>
+            <div>
+              <strong style="color: #FFFFFF; display: block;">Location</strong>
+              <span>Bengaluru & Jaipur, India</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Stay Updated</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">Get practical startup insights, founder lessons and new cohort updates.</p>
+          <form data-ajax="true" style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="email" placeholder="Enter your email" required class="form-input" style="padding: 10px 14px; font-size: 0.88rem;">
+            <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2025–2027 Celebso Startup School. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#" style="color: var(--text-dim);">Terms of Use</a>
+          <a href="#" style="color: var(--text-dim);">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Apply Modal -->
+  <div id="applyModal" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Close modal">✕</button>
+      <div class="eyebrow">45-DAY FOUNDER JOURNEY</div>
+      <h2 style="font-size: 1.8rem; margin-bottom: 8px;">Apply for Celebso Startup School</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px;">Fill in your details below. Our admissions team will review your application and send test details within 24 hours.</p>
+
+      <form data-ajax="true">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input type="text" required placeholder="e.g. Ronak Sharma" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address *</label>
+          <input type="email" required placeholder="e.g. ronak@example.com" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number *</label>
+          <input type="tel" required placeholder="+91 98765 43210" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tell us briefly about your background *</label>
+          <textarea required rows="3" placeholder="What are you building or looking to build?" class="form-textarea"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          SUBMIT APPLICATION
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+
+  <!-- Dedicated Gallery & Lightbox Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = Array.from(document.querySelectorAll('.gallery-card'));
+      const modal = document.getElementById('lightboxModal');
+      const modalImg = document.getElementById('lightboxImg');
+      const modalTitle = document.getElementById('lightboxTitle');
+      const modalDesc = document.getElementById('lightboxDesc');
+      const modalCounter = document.getElementById('lightboxCounter');
+      const closeBtn = document.getElementById('lightboxClose');
+      const prevBtn = document.getElementById('lightboxPrev');
+      const nextBtn = document.getElementById('lightboxNext');
+
+      let currentVisibleCards = [...cards];
+      let currentIndex = 0;
+
+      // 1. Filtering Logic
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+
+          currentVisibleCards = [];
+          cards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.style.display = 'block';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+              }, 10);
+              currentVisibleCards.push(card);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.95)';
+              setTimeout(() => {
+                card.style.display = 'none';
+              }, 200);
+            }
+          });
+        });
+      });
+
+      // 2. Open Lightbox
+      function openLightbox(index) {
+        if (currentVisibleCards.length === 0) return;
+        currentIndex = (index + currentVisibleCards.length) % currentVisibleCards.length;
+        const card = currentVisibleCards[currentIndex];
+        const src = card.getAttribute('data-src');
+        const title = card.getAttribute('data-title');
+        const desc = card.getAttribute('data-desc');
+
+        modalImg.src = src;
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+        modalCounter.textContent = `${currentIndex + 1} / ${currentVisibleCards.length}`;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function nextPhoto() {
+        openLightbox(currentIndex + 1);
+      }
+
+      function prevPhoto() {
+        openLightbox(currentIndex - 1);
+      }
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const index = currentVisibleCards.indexOf(card);
+          if (index !== -1) {
+            openLightbox(index);
+          }
+        });
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextPhoto(); });
+      prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevPhoto(); });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.classList.contains('lightbox-container')) {
+          closeLightbox();
+        }
+      });
+
+      // Keyboard Controls
+      document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextPhoto();
+        if (e.key === 'ArrowLeft') prevPhoto();
+      });
+    });
+  </script>
+</body>
+</html>

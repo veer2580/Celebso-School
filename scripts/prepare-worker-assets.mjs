@@ -10,6 +10,7 @@ for (const entry of [
   "index.html",
   "insights.html",
   "pitch-day.html",
+  "pictures.html",
   "programs.html",
   "robots.txt",
   "sitemap.xml",

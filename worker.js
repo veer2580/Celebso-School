@@ -5,6 +5,7 @@ export default {
       "/about": "/about.html",
       "/programs": "/programs.html",
       "/pitch-day": "/pitch-day.html",
+      "/pictures": "/pictures.html",
       "/insights": "/insights.html",
       "/contact": "/contact.html",
     };
