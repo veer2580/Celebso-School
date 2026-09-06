@@ -1,5 +1,6 @@
 # Cloudflare & Node artifacts
 node_modules/
+public/
 .wrangler/
 .env
 .env.*
