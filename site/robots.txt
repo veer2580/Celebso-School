@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://school.celebso.com/sitemap.xml
+
+# Block access to config/dev files
+Disallow: /wrangler.toml
+Disallow: /.gitignore
+Disallow: /_headers
+Disallow: /_redirects

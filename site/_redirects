@@ -1,0 +1,6 @@
+# Clean URL routing for Cloudflare Pages
+/about          /about.html          200
+/programs       /programs.html       200
+/pitch-day      /pitch-day.html      200
+/insights       /insights.html       200
+/contact        /contact.html        200

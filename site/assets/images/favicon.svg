@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 270">
+  <!--
+    Celebso Logo Mark
+    Golden yellow (#F5A623) on fully TRANSPARENT background
+    Matches the S-molecular shape from the provided logo image
+  -->
+  <defs>
+    <!-- Cut the circular hole from center S-body -->
+    <mask id="sHole">
+      <rect width="200" height="270" fill="white"/>
+      <!-- Center hole - transparent cutout -->
+      <circle cx="100" cy="148" r="30" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- TOP LEFT: Large bubble -->
+  <circle cx="70" cy="42" r="30" fill="#F5A623"/>
+
+  <!-- TOP RIGHT: Smaller separate floating bubble -->
+  <circle cx="142" cy="28" r="20" fill="#F5A623"/>
+
+  <!-- LEFT STEM: connecting top bubble down to S-body -->
+  <rect x="48" y="58" width="44" height="46" rx="22" fill="#F5A623"/>
+
+  <!-- TOP BRIDGE: horizontal bar connecting left to right at top of S -->
+  <rect x="48" y="90" width="104" height="42" rx="21" fill="#F5A623"/>
+
+  <!-- RIGHT BUBBLE at top of S -->
+  <circle cx="152" cy="111" r="21" fill="#F5A623"/>
+
+  <!-- CENTER S-BODY: outer shell with center hole masked out -->
+  <rect x="48" y="108" width="104" height="82" rx="30" fill="#F5A623" mask="url(#sHole)"/>
+
+  <!-- BOTTOM LEFT CONNECTOR -->
+  <circle cx="63" cy="195" r="21" fill="#F5A623"/>
+
+  <!-- BOTTOM RIGHT CONNECTOR -->
+  <circle cx="137" cy="195" r="21" fill="#F5A623"/>
+
+  <!-- BOTTOM PILL: wide capsule at the base -->
+  <rect x="36" y="207" width="128" height="50" rx="25" fill="#F5A623"/>
+</svg>
