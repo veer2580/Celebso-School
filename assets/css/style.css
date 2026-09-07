@@ -172,18 +172,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-family: var(--font-heading);
-  font-size: 1.7rem;
-  font-weight: 900;
-  letter-spacing: 0.03em;
-  color: #FFFFFF;
+  gap: 8px;
+  text-decoration: none;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
 }
 
-.brand-logo .dot {
-  color: var(--accent-lime);
+.brand-logo:hover {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
+}
+
+.brand-logo-img {
+  height: 36px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
 }
 
 .nav-menu {
@@ -389,16 +395,17 @@ section {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .hero-content h1 {
-  font-size: 3.4rem;
-  font-weight: 800;
-  line-height: 1.08;
-  margin-bottom: 20px;
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin-bottom: 22px;
 }
 
 .hero-description {
@@ -406,6 +413,7 @@ section {
   color: #D1D5DB;
   margin-bottom: 28px;
   font-weight: 500;
+  line-height: 1.6;
 }
 
 .hero-meta-bar {
@@ -455,22 +463,253 @@ section {
   gap: 18px;
 }
 
-/* Video / Founder Hero Card */
-.founder-video-card {
-  position: relative;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  border: 1px solid var(--card-border);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(202, 255, 4, 0.12);
-  background: #0A140F;
+.hero-visual {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
 }
 
 .video-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  aspect-ratio: 16/11;
+  height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform var(--transition-smooth);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Video / Founder Hero Card */
+.founder-video-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(202, 255, 4, 0.12);
+  background: #0A140F;
+  cursor: pointer;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.founder-video-card:hover {
+  transform: translateY(-4px) scale(1.008);
+  border-color: rgba(202, 255, 4, 0.5);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 50px rgba(202, 255, 4, 0.25);
+}
+
+.founder-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(5, 11, 8, 0.72) 0%, rgba(5, 11, 8, 0.15) 50%, rgba(5, 11, 8, 0.45) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.founder-card-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.photo-card-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+}
+
+.photo-tag-badge {
+  background: rgba(0, 0, 0, 0.88);
+  padding: 2px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  margin: 4px 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.card-center-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+}
+
+.card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo-pill-time {
+  background: rgba(18, 48, 30, 0.92);
+  border: 1px solid rgba(202, 255, 4, 0.4);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.photo-pill-founder {
+  background: rgba(24, 24, 27, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-size: 0.92rem;
+  color: #FFFFFF;
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.play-pulse-btn {
+  width: 66px;
+  height: 66px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  animation: pulse-ring 2.5s infinite;
+}
+
+.founder-video-card:hover .play-pulse-btn {
+  transform: scale(1.12);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.95);
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 0 16px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* SS2 Live Cohort Video Modal */
+.video-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5, 11, 8, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal-content {
+  background: #0A140F;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 50px rgba(202, 255, 4, 0.15);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 860px;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-modal-backdrop.active .video-modal-content {
+  transform: scale(1);
+}
+
+.video-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid var(--card-border-subtle);
+}
+
+.live-cohort-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #CAFF04;
+  color: #050B08;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #050B08;
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.video-modal-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.video-modal-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(90deg);
+}
+
+.video-wrapper {
+  padding: 16px;
+  background: #000;
 }
 
 .founder-video-card:hover .video-thumb {
@@ -790,9 +1029,10 @@ section {
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  max-width: 880px;
+  gap: 16px;
+  max-width: 1060px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .faq-item {
@@ -814,16 +1054,16 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 26px;
+  padding: 22px 28px;
   background: transparent;
   border: none;
   font-family: var(--font-heading);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #FFFFFF;
   text-align: left;
   cursor: pointer;
-  gap: 16px;
+  gap: 24px;
 }
 
 .faq-icon {

@@ -6,6 +6,7 @@ await mkdir("public", { recursive: true });
 for (const entry of [
   "404.html",
   "about.html",
+  "apply.html",
   "contact.html",
   "index.html",
   "insights.html",

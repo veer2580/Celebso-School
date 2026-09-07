@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initInsightsFilter();
   initCounters();
   initFormSubmissions();
+  initCohortVideoModal();
 });
 
 /* Top Reading Progress Bar */
@@ -174,40 +175,25 @@ function initAccordions() {
   });
 }
 
-/* Apply Now Modal */
+/* Apply Now Action - Open AllEvents in New Tab */
+const ALLEVENTS_APPLY_URL = 'https://allevents.in/jaipur/celebso-founders-circle-jaipur-tickets/80006319189371';
+
 function initApplyModal() {
-  const modal = document.getElementById('applyModal');
   const openButtons = document.querySelectorAll('[data-action="open-apply-modal"]');
-  const closeBtn = document.querySelector('.modal-close');
+  openButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open(ALLEVENTS_APPLY_URL, '_blank', 'noopener,noreferrer');
+    });
+  });
 
-  if (!modal) return;
-
-  const openModal = (e) => {
-    if (e) e.preventDefault();
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  openButtons.forEach((btn) => btn.addEventListener('click', openModal));
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
+  const applyForm = document.getElementById('admissionApplyForm');
+  if (applyForm) {
+    applyForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      window.open(ALLEVENTS_APPLY_URL, '_blank', 'noopener,noreferrer');
+    });
   }
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) {
-      closeModal();
-    }
-  });
 }
 
 /* Insights Search and Category Filter */
@@ -390,4 +376,59 @@ function showToast(message, type = 'success') {
     toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
   }, 4000);
+}
+
+/* SS2 Live Cohort Video Modal */
+function initCohortVideoModal() {
+  const trigger = document.getElementById('heroVideoTrigger');
+  const modal = document.getElementById('cohortVideoModal');
+  const closeBtn = document.getElementById('closeVideoModal');
+  const video = document.getElementById('liveCohortVideo');
+
+  if (!modal) return;
+
+  const openModal = () => {
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (video) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    }
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (video) {
+      video.pause();
+    }
+  };
+
+  if (trigger) {
+    trigger.addEventListener('click', openModal);
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal();
+      }
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
 }

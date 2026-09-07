@@ -8,6 +8,11 @@ export default {
       "/pictures": "/pictures.html",
       "/insights": "/insights.html",
       "/contact": "/contact.html",
+      "/apply": "/apply.html",
+      "/terms": "/terms.html",
+      "/terms-of-use": "/terms.html",
+      "/privacy": "/privacy.html",
+      "/privacy-policy": "/privacy.html",
     };
 
     if (cleanRoutes[url.pathname]) {
