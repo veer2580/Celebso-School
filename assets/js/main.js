@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProgressBar();
   initNavbar();
   initScrollAnimations();
+  initPageMotion();
   initCardSpotlight();
   initSmoothAnchors();
   initAccordions();
@@ -16,6 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initCohortVideoModal();
   initHeroInlineVideo();
 });
+
+/* Enables the subtle entrance motion after the first paint. */
+function initPageMotion() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  requestAnimationFrame(() => {
+    document.body.classList.add('motion-ready');
+  });
+}
 
 /* Top Reading Progress Bar */
 function initProgressBar() {
@@ -437,23 +447,17 @@ function initCohortVideoModal() {
   });
 }
 
-/* Hero 16:9 Inline Video Autoplay Guarantee */
+/* Hero video plays only after the visitor taps the thumbnail. */
 function initHeroInlineVideo() {
   const heroVid = document.querySelector('.hero-video');
-  if (heroVid) {
-    heroVid.muted = true;
-    const playPromise = heroVid.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        const startAutoplay = () => {
-          heroVid.play().catch(() => {});
-          window.removeEventListener('click', startAutoplay);
-          window.removeEventListener('touchstart', startAutoplay);
-        };
-        window.addEventListener('click', startAutoplay, { once: true });
-        window.addEventListener('touchstart', startAutoplay, { once: true });
-      });
-    }
-  }
+  const trigger = document.querySelector('.hero-video-trigger');
+
+  if (!heroVid || !trigger) return;
+
+  trigger.addEventListener('click', () => {
+    trigger.hidden = true;
+    heroVid.hidden = false;
+    heroVid.play().catch(() => {});
+  });
 }
 

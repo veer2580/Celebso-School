@@ -185,14 +185,15 @@
         <!-- Hero Founder Video Card (Responsive 16:9 Horizontal Video Card) -->
         <div class="hero-visual reveal-on-scroll">
           <div class="hero-video-card" id="heroVideoCard">
-            <video class="hero-video"
-              autoplay
-              muted
-              loop
-              playsinline
-              controls
-              poster="assets/images/hero_full_card_bg.jpg"
-              preload="metadata">
+            <button class="hero-video-trigger" type="button" aria-label="Play the founder session video">
+              <img class="hero-video-thumbnail" src="assets/videos/hero-founder-session-thumbnail.jpg" alt="Founder of CelebsoX sharing why India needs builders, not managers">
+              <span class="hero-video-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                  <path d="M8 5.5v13l10-6.5-10-6.5Z" fill="currentColor"></path>
+                </svg>
+              </span>
+            </button>
+            <video class="hero-video" playsinline controls preload="metadata" hidden>
               <source src="assets/videos/veer_sir_session_01.mp4" type="video/mp4">
               <source src="assets/videos/veer_sir_session_02.mp4" type="video/mp4">
               Your browser does not support the video tag.
@@ -430,16 +431,8 @@
         <div style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: center;">
           <div
             style="position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--card-border-subtle); aspect-ratio: 1/1.05; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-            <img src="assets/images/founder_chair_full.jpg" alt="Mr. Sumit Srivastava - Startup Chaupal"
+            <img src="assets/images/sumit-srivastava-incubator.png" alt="Mr. Sumit Srivastava - Startup Chaupal"
               style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            <div
-              style="position: absolute; bottom: 18px; left: 18px; background: rgba(10, 15, 12, 0.92); backdrop-filter: blur(12px); padding: 14px 20px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.6);">
-              <div style="font-size: 0.92rem; color: #FFFFFF; font-weight: 700; margin-bottom: 2px;">Mr. Sumit Srivastava</div>
-              <div style="font-size: 0.78rem; color: #94A3B8; font-weight: 500; margin-bottom: 6px;">Startup Chaupal</div>
-              <div style="font-size: 1.15rem; font-weight: 900; letter-spacing: 0.05em; color: #FFFFFF; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 6px;">
-                CELEBS<span style="color: #FF7A00;">O</span>
-              </div>
-            </div>
           </div>
           <div>
             <div class="eyebrow">INCUBATOR</div>
