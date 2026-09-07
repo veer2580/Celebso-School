@@ -62,7 +62,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="https://allevents.in/jaipur/celebso-founders-circle-jaipur-tickets/80006319189371" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+        <a href="apply.html" class="btn btn-primary btn-sm">
           APPLY NOW
           <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -176,34 +176,76 @@
         </div>
 
         <!-- Right: Official Admission Application Form -->
-        <div class="glass-card glass-card-glow reveal-on-scroll" style="padding: 40px; border-color: var(--card-border);">
+        <div class="glass-card glass-card-glow reveal-on-scroll" style="padding: 40px; border-color: var(--card-border); border-radius: var(--radius-xl);">
           <div style="margin-bottom: 24px;">
-            <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 8px;">Founder Application Form</h2>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">Takes less than 3 minutes to complete. All fields marked * are required.</p>
+            <div class="eyebrow" style="margin-bottom: 8px;">ADMISSIONS 2026</div>
+            <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 8px;">PGP in Startup Leadership</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Takes less than 2 minutes to complete. All fields marked * are required.</p>
           </div>
 
-          <div class="glass-card" style="padding: 32px; text-align: center; border: 1px solid var(--accent-lime); background: linear-gradient(135deg, rgba(202,255,4,0.06) 0%, rgba(0,0,0,0.5) 100%);">
-            <div class="eyebrow" style="margin-bottom: 8px;">OFFICIAL APPLICATION PORTAL</div>
-            <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 14px;">Apply for Celebso Founders Circle</h2>
-            <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 28px; max-width: 500px; margin-left: auto; margin-right: auto;">
-              Applications and registration for the upcoming Jaipur Cohort are officially hosted on AllEvents. Click below to secure your seat and submit your application.
-            </p>
-            <a href="https://allevents.in/jaipur/celebso-founders-circle-jaipur-tickets/80006319189371" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg"  style="width: 100%; justify-content: center; padding: 18px 24px; font-size: 1.1rem; font-weight: 800; text-decoration: none; box-shadow: 0 0 30px rgba(202,255,4,0.35);">
-              APPLY NOW ON ALLEVENTS →
-            </a>
-            <div style="margin-top: 20px; font-size: 0.85rem; color: var(--text-dim); display: flex; align-items: center; justify-content: center; gap: 8px;">
-              <span>🔒 Official AllEvents Registration</span> • <span>Instant Confirmation</span>
+          <form id="admissionApplyForm" style="display: flex; flex-direction: column; gap: 18px;">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+              <input type="text" name="fullName" required placeholder="Full Name" class="form-input" style="background: rgba(0, 0, 0, 0.55); border: 1px solid var(--card-border-subtle); border-radius: 12px; padding: 15px 18px; color: #FFFFFF; font-size: 0.95rem;">
             </div>
-          </div>
+
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+              <input type="email" name="email" required placeholder="Email" class="form-input" style="background: rgba(0, 0, 0, 0.55); border: 1px solid var(--card-border-subtle); border-radius: 12px; padding: 15px 18px; color: #FFFFFF; font-size: 0.95rem;">
+            </div>
+
+            <div class="form-group" style="display: flex; gap: 12px;">
+              <div style="width: 120px; flex-shrink: 0;">
+                <select name="countryCode" class="form-select" style="background: rgba(0, 0, 0, 0.55); border: 1px solid var(--card-border-subtle); border-radius: 12px; padding: 15px 14px; color: #FFFFFF; font-size: 0.95rem; width: 100%; cursor: pointer;">
+                  <option value="+91" selected>IN +91</option>
+                  <option value="+1">US +1</option>
+                  <option value="+44">UK +44</option>
+                  <option value="+971">UAE +971</option>
+                  <option value="+65">SG +65</option>
+                  <option value="+61">AU +61</option>
+                </select>
+              </div>
+              <div style="flex: 1;">
+                <input type="tel" name="whatsapp" required placeholder="WhatsApp Number" class="form-input" style="background: rgba(0, 0, 0, 0.55); border: 1px solid var(--card-border-subtle); border-radius: 12px; padding: 15px 18px; color: #FFFFFF; font-size: 0.95rem; width: 100%;">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <select name="city" required class="form-select" style="background: rgba(0, 0, 0, 0.55); border: 1px solid var(--card-border-subtle); border-radius: 12px; padding: 15px 18px; color: #FFFFFF; font-size: 0.95rem; width: 100%; cursor: pointer;">
+                <option value="" disabled selected>City</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Delhi NCR">Delhi NCR</option>
+                <option value="Bengaluru">Bengaluru</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Pune">Pune</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 6px;">
+              <input type="url" name="linkedin" placeholder="LinkedIn URL (https://www.linkedin.com/in/john-doe/)" class="form-input" style="background: rgba(0, 0, 0, 0.55); border: 1px solid var(--card-border-subtle); border-radius: 12px; padding: 15px 18px; color: #FFFFFF; font-size: 0.95rem;">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center; padding: 16px; font-size: 1.05rem; font-weight: 800; border-radius: 12px; margin-top: 6px; box-shadow: 0 4px 24px rgba(202, 255, 4, 0.35); cursor: pointer;">
+              Submit
+            </button>
+
+            <p style="font-size: 0.76rem; color: var(--text-muted); text-align: center; margin-top: 8px; line-height: 1.45;">
+              By submitting, you authorise Celebso Startup School to contact you with updates via Email, SMS, WhatsApp or Call. This will override DND/NDNC.
+            </p>
+          </form>
 
           <!-- Success Notification Placeholder -->
-          <div id="applySuccessNotice" style="display: none; margin-top: 24px; padding: 24px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-emerald); border-radius: var(--radius-md); text-align: center;">
+          <div id="applySuccessNotice" style="display: none; margin-top: 24px; padding: 28px; background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-emerald); border-radius: 16px; text-align: center;">
             <div style="font-size: 2.5rem; margin-bottom: 10px;">🎉</div>
             <h3 style="color: #FFFFFF; font-size: 1.4rem; margin-bottom: 8px;">Application Submitted Successfully!</h3>
-            <p style="color: #E2E8F0; font-size: 0.95rem; margin-bottom: 16px;">
-              Thank you for applying to the Celebso Startup School Jaipur Cohort. Our admissions team will review your application and email you the Celebso Admissions Test (CAT) details within 24 hours.
+            <p style="color: #E2E8F0; font-size: 0.95rem; margin-bottom: 16px; line-height: 1.5;">
+              Thank you for applying to the <strong>PGP in Startup Leadership</strong> at Celebso Startup School. Our admissions team will review your profile and contact you on WhatsApp/Email within 24 hours.
             </p>
-            <a href="index.html" class="btn btn-secondary btn-sm">Return to Home</a>
+            <button type="button" onclick="document.getElementById('applySuccessNotice').style.display='none'; document.getElementById('admissionApplyForm').style.display='flex';" class="btn btn-secondary btn-sm">Submit Another Application</button>
           </div>
         </div>
       </div>
@@ -304,7 +346,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 <a href="https://antellay.in" target="_blank" rel="noopener noreferrer" style="color: #4D96FF; font-weight: 800; text-decoration: none; transition: all 0.2s ease; display: inline-block;">ANTELLAY Labs</a>. All Rights Reserved. A Celebso Group Company.</p>
+        <p>© 2026 <a href="https://antellay.in/" target="_blank" rel="noopener noreferrer" class="antellay-link" style="color: #3B82F6; font-weight: 700; text-decoration: none;">ANTELLAY Labs</a>. All Rights Reserved. A Celebso Group Company.</p>
         <div style="display: flex; gap: 20px;">
           <a href="#" style="color: var(--text-dim); font-size: 0.85rem;">Privacy Policy</a>
           <a href="#" style="color: var(--text-dim); font-size: 0.85rem;">Terms of Service</a>

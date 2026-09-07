@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initFormSubmissions();
   initCohortVideoModal();
+  initHeroInlineVideo();
 });
 
 /* Top Reading Progress Bar */
@@ -175,15 +176,13 @@ function initAccordions() {
   });
 }
 
-/* Apply Now Action - Open AllEvents in New Tab */
-const ALLEVENTS_APPLY_URL = 'https://allevents.in/jaipur/celebso-founders-circle-jaipur-tickets/80006319189371';
-
+/* Apply Now Action - Navigate to Apply Page & Handle Submissions */
 function initApplyModal() {
   const openButtons = document.querySelectorAll('[data-action="open-apply-modal"]');
   openButtons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      window.open(ALLEVENTS_APPLY_URL, '_blank', 'noopener,noreferrer');
+      window.location.href = 'apply.html';
     });
   });
 
@@ -191,7 +190,12 @@ function initApplyModal() {
   if (applyForm) {
     applyForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      window.open(ALLEVENTS_APPLY_URL, '_blank', 'noopener,noreferrer');
+      const notice = document.getElementById('applySuccessNotice');
+      if (notice) {
+        applyForm.style.display = 'none';
+        notice.style.display = 'block';
+        notice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
   }
 }
@@ -432,3 +436,24 @@ function initCohortVideoModal() {
     }
   });
 }
+
+/* Hero 16:9 Inline Video Autoplay Guarantee */
+function initHeroInlineVideo() {
+  const heroVid = document.querySelector('.hero-video');
+  if (heroVid) {
+    heroVid.muted = true;
+    const playPromise = heroVid.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        const startAutoplay = () => {
+          heroVid.play().catch(() => {});
+          window.removeEventListener('click', startAutoplay);
+          window.removeEventListener('touchstart', startAutoplay);
+        };
+        window.addEventListener('click', startAutoplay, { once: true });
+        window.addEventListener('touchstart', startAutoplay, { once: true });
+      });
+    }
+  }
+}
+
