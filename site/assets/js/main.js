@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Celebso Startup School - Main Interactive Script
  */
 
@@ -456,8 +456,28 @@ function initHeroInlineVideo() {
 
   trigger.addEventListener('click', () => {
     trigger.hidden = true;
+    trigger.style.display = 'none';
     heroVid.hidden = false;
+    heroVid.style.display = 'block';
     heroVid.play().catch(() => {});
   });
+
+  heroVid.addEventListener('click', () => {
+    if (heroVid.paused) {
+      heroVid.play().catch(() => {});
+    } else {
+      heroVid.pause();
+    }
+  });
+
+  heroVid.addEventListener('ended', () => {
+    heroVid.pause();
+    heroVid.hidden = true;
+    heroVid.style.display = 'none';
+    trigger.hidden = false;
+    trigger.style.display = 'block';
+  });
 }
+
+
 
