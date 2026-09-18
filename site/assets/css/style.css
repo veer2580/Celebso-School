@@ -600,6 +600,36 @@ section {
   outline-offset: -5px;
 }
 
+.hero-video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent-lime);
+  color: #050B08;
+  border: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 4;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(202, 255, 4, 0.45);
+  transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease, background 0.25s ease;
+}
+
+.hero-video-play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.75), 0 0 35px rgba(202, 255, 4, 0.65);
+}
+
+.hero-video-play-btn.is-playing {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /* Home hero micro-interactions */
 @keyframes hero-item-in {
   from {

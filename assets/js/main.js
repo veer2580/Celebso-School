@@ -447,13 +447,48 @@ function initCohortVideoModal() {
   });
 }
 
-/* Hero video initialization */
+/* Hero video initialization - starts paused until user taps */
 function initHeroInlineVideo() {
-  const heroVid = document.querySelector('.hero-video');
+  const heroVid = document.getElementById('heroFounderVideo') || document.querySelector('.hero-video');
+  const playBtn = document.getElementById('heroPlayBtn');
+  const card = document.getElementById('heroVideoCard');
+
   if (!heroVid) return;
 
-  // Auto-play muted video if browser permits
-  if (heroVid.paused) {
-    heroVid.play().catch(() => {});
+  // Ensure it starts paused initially
+  heroVid.pause();
+
+  const startPlayback = () => {
+    heroVid.play().catch(() => {
+      heroVid.muted = true;
+      heroVid.play().catch(() => {});
+    });
+  };
+
+  if (playBtn) {
+    playBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      startPlayback();
+    });
   }
+
+  if (card) {
+    card.addEventListener('click', () => {
+      if (heroVid.paused) {
+        startPlayback();
+      }
+    });
+  }
+
+  heroVid.addEventListener('play', () => {
+    if (playBtn) playBtn.classList.add('is-playing');
+  });
+
+  heroVid.addEventListener('pause', () => {
+    if (playBtn) playBtn.classList.remove('is-playing');
+  });
+
+  heroVid.addEventListener('ended', () => {
+    if (playBtn) playBtn.classList.remove('is-playing');
+  });
 }
