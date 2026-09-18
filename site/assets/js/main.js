@@ -447,37 +447,13 @@ function initCohortVideoModal() {
   });
 }
 
-/* Hero video plays only after the visitor taps the thumbnail. */
+/* Hero video initialization */
 function initHeroInlineVideo() {
   const heroVid = document.querySelector('.hero-video');
-  const trigger = document.querySelector('.hero-video-trigger');
+  if (!heroVid) return;
 
-  if (!heroVid || !trigger) return;
-
-  trigger.addEventListener('click', () => {
-    trigger.hidden = true;
-    trigger.style.display = 'none';
-    heroVid.hidden = false;
-    heroVid.style.display = 'block';
+  // Auto-play muted video if browser permits
+  if (heroVid.paused) {
     heroVid.play().catch(() => {});
-  });
-
-  heroVid.addEventListener('click', () => {
-    if (heroVid.paused) {
-      heroVid.play().catch(() => {});
-    } else {
-      heroVid.pause();
-    }
-  });
-
-  heroVid.addEventListener('ended', () => {
-    heroVid.pause();
-    heroVid.hidden = true;
-    heroVid.style.display = 'none';
-    trigger.hidden = false;
-    trigger.style.display = 'block';
-  });
+  }
 }
-
-
-

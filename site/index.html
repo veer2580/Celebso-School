@@ -185,16 +185,16 @@
         <!-- Hero Founder Video Card (Responsive 16:9 Horizontal Video Card) -->
         <div class="hero-visual reveal-on-scroll">
           <div class="hero-video-card" id="heroVideoCard">
-            <button class="hero-video-trigger" type="button" aria-label="Play the founder session video">
-              <img class="hero-video-thumbnail" src="assets/videos/hero-founder-session-thumbnail.jpg" alt="Founder of CelebsoX sharing why India needs builders, not managers">
-              <span class="hero-video-play" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
-                  <path d="M8 5.5v13l10-6.5-10-6.5Z" fill="currentColor"></path>
-                </svg>
-              </span>
-            </button>
-            <video class="hero-video" playsinline controls preload="metadata" hidden>
+            <video class="hero-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              controls
+              poster="assets/videos/thumb_video_1.jpg"
+              preload="metadata">
               <source src="assets/videos/hero-founder-session.mp4" type="video/mp4">
+              <source src="assets/videos/veer_sir_session_01.mp4" type="video/mp4">
               <source src="assets/videos/veer_sir_session_02.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
