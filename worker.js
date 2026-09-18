@@ -1,4 +1,4 @@
-﻿export default {
+export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
@@ -18,6 +18,7 @@
 
     // 3. Map clean URLs to actual static HTML files
     const cleanRoutes = {
+      "/": "/index.html",
       "/about": "/about.html",
       "/programs": "/programs.html",
       "/pitch-day": "/pitch-day.html",
@@ -32,10 +33,22 @@
     };
 
     if (cleanRoutes[url.pathname]) {
-      url.pathname = cleanRoutes[url.pathname];
-      return env.ASSETS.fetch(new Request(url, request));
+      const assetUrl = new URL(request.url);
+      assetUrl.pathname = cleanRoutes[url.pathname];
+      return env.ASSETS.fetch(new Request(assetUrl.toString(), request));
     }
 
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    if (response.status === 404) {
+      const notFoundUrl = new URL("/404.html", request.url);
+      const notFoundRes = await env.ASSETS.fetch(new Request(notFoundUrl.toString(), request));
+      return new Response(notFoundRes.body, {
+        status: 404,
+        statusText: "Not Found",
+        headers: notFoundRes.headers,
+      });
+    }
+
+    return response;
   },
 };

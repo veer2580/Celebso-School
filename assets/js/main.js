@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Celebso Startup School - Main Interactive Script
  */
 
